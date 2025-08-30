@@ -7,7 +7,7 @@ Sistema frontend desarrollado en **Angular 20** para la gestión de agendamiento
 ## Prerrequisitos
 
 Asegúrese de tener instalado:
-- **Node.js** (versión 18 o superior)
+- **Node.js** (versión 11.5.2 o superior)
 - **npm** (viene incluido con Node.js)
 
 ## Pasos para el Despliegue
