@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+  <h2>Lista de Productos</h2>
+  
+  <div class="actions">
+    <a routerLink="/productos/crear" class="btn btn-primary">
+      + Nuevo Producto
+    </a>
+  </div>
+
+  @if (isLoading) {
+    <p>Cargando productos...</p>
+  } @else {
+    @if (productos.length === 0) {
+      <div class="empty-state">
+        <p>No hay productos registrados</p>
+        <p class="text-muted">Comienza agregando tu primer producto</p>
+      </div>
+    } @else {
+      <div class="productos-grid">
+        @for (producto of productos; track producto.id) {
+          <div class="producto-card">
+            <h3>{{ producto.nombre }}</h3>
+            <div class="actions">
+              <a [routerLink]="['/productos/editar', producto.id]" class="btn btn-edit">
+                Editar
+              </a>
+              <button (click)="delete(producto.id!)" class="btn btn-delete">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

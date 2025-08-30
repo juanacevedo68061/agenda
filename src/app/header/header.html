@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="header-container">
+    <div class="header-logo" (click)="goToHome()">
+      <h2>Agenda de Proveedores</h2>
+    </div>
+    
+    <nav class="header-nav">
+      <button 
+        (click)="goToProveedores()" 
+        [class.active]="isActive('/proveedores')"
+        class="nav-button"
+      >
+        Proveedores
+      </button>
+      <button 
+        (click)="goToProductos()" 
+        [class.active]="isActive('/productos')"
+        class="nav-button"
+      >
+        Productos
+      </button>
+      <button 
+        (click)="goToJaulas()" 
+        [class.active]="isActive('/jaulas')"
+        class="nav-button"
+      >
+        Jaulas
+      </button>
+      <button 
+        (click)="goToTurnos()" 
+        [class.active]="isActive('/turnos')"
+        class="nav-button"
+      >
+        Turnos
+      </button>
+    </nav>
+  </div>
+</header>

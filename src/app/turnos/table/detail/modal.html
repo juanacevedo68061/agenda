@@ -1,0 +1,35 @@
+<div class="modal-overlay">
+  <div class="modal">
+    <h3>Productos del Turno</h3>
+    
+    <div class="modal-content">
+      <!-- Solo productos -->
+      @if (turno.detalles.length > 0) {
+        <table class="productos-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (detalle of turno.detalles; track detalle.id) {
+              <tr>
+                <td>{{ detalle.producto.nombre }}</td>
+                <td>{{ detalle.cantidad }} unidades</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      } @else {
+        <p>No hay productos registrados</p>
+      }
+
+      <div class="modal-actions">
+        <button (click)="cerrarModal()" class="btn btn-cancel">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

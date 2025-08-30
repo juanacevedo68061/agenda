@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Editar Proveedor</h2>
+
+  @if (isLoading) {
+    <p>Cargando proveedor...</p>
+  } @else if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+    <button (click)="cancel()" class="btn btn-secondary">Volver</button>
+  } @else {
+    <form (ngSubmit)="onSubmit()" #proveedorForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre del Proveedor:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="proveedor.nombre"
+          required
+          class="form-control"
+          placeholder="Ingresa el nombre del proveedor"
+        >
+        @if (errorMessage) {
+          <div class="error-message">{{ errorMessage }}</div>
+        }
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          (click)="cancel()"
+          class="btn btn-secondary"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          [disabled]="isSubmitting || !proveedor.nombre.trim()"
+          class="btn btn-primary"
+        >
+          @if (isSubmitting) {
+            Actualizando...
+          } @else {
+            Actualizar Proveedor
+          }
+        </button>
+      </div>
+    </form>
+  }
+</div>

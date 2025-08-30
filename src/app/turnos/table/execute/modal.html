@@ -1,0 +1,65 @@
+<div class="modal-overlay">
+  <div class="modal">
+    <h3>
+      @if (puedeIniciar()) {
+        Iniciar Recepción
+      } @else {
+        Finalizar Recepción
+      }
+    </h3>
+    
+    <div class="modal-content">
+      <p><strong>Proveedor:</strong> {{ turno.proveedor.nombre }}</p>
+      <p><strong>Horario:</strong> {{ turno.horaInicioAgendamiento }} - {{ turno.horaFinAgendamiento }}</p>
+      
+      @if (puedeIniciar()) {
+        @if (jaulasDisponibles.length > 0) {
+          <div class="form-group">
+            <label for="jaula">Jaula:</label>
+            <select
+              id="jaula"
+              [(ngModel)]="jaulaSeleccionada"
+              class="form-control"
+            >
+              @for (jaula of jaulasDisponibles; track jaula.id) {
+                <option [value]="jaula.id">{{ jaula.nombre }}</option>
+              }
+            </select>
+          </div>
+        } @else {
+          <p class="error-message">No hay jaulas disponibles</p>
+        }
+      } @else if (puedeFinalizar()) {
+        <p><strong>Iniciado:</strong> {{ turno.horaInicioRecepcion }}</p>
+        <p>¿Confirmar finalización de la recepción?</p>
+      }
+
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+
+      <div class="modal-actions">
+        <button
+          (click)="cancelar()"
+          [disabled]="isLoading"
+          class="btn btn-cancel"
+        >
+          Cancelar
+        </button>
+        <button
+          (click)="confirmar()"
+          [disabled]="isLoading || (puedeIniciar() && jaulasDisponibles.length === 0)"
+          class="btn btn-confirm"
+        >
+          @if (isLoading) {
+            Procesando...
+          } @else if (puedeIniciar()) {
+            Iniciar Recepción
+          } @else {
+            Finalizar Recepción
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

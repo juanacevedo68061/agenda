@@ -1,0 +1,121 @@
+<app-header></app-header>
+<div class="container">
+  <h2>Turnos agendados</h2>
+
+  <!-- Header con filtro y botón de registro -->
+  <div class="header-actions">
+    <div class="filtros">
+      <label for="fecha">Fecha:</label>
+      <input
+        type="date"
+        id="fecha"
+        [(ngModel)]="fechaSeleccionada"
+        class="form-control"
+      >
+      <button (click)="cargarTurnos()" class="btn btn-filter">
+        Filtrar
+      </button>
+    </div>
+
+    <button (click)="registrarNuevo()" class="btn btn-primary">
+      + Registrar Turno
+    </button>
+  </div>
+
+  <!-- Mensajes de error -->
+  @if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+  }
+
+  <!-- Loading -->
+  @if (isLoading) {
+    <p>Cargando turnos...</p>
+  } @else {
+    <!-- Tabla de turnos -->
+    @if (turnos.length === 0) {
+      <p>No hay turnos para la fecha seleccionada</p>
+    } @else {
+      <table class="turnos-table">
+        <thead>
+          <tr>
+            <th>Inicio agendamiento</th>
+            <th>Fin agendamiento</th>
+            <th>Proveedor</th>
+            <th>Estado</th>
+            <th>Jaula</th> <!-- ← NUEVA COLUMNA -->
+            <th>Inicio recepción</th>
+            <th>Fin recepción</th>
+            <th>Acciones</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (turno of turnos; track turno.id) {
+            <tr>
+              <td>{{ turno.horaInicioAgendamiento }}</td>
+              <td>{{ turno.horaFinAgendamiento }}</td>
+              <td>{{ turno.proveedor.nombre }}</td>
+              <td>
+                @let estado = obtenerEstado(turno);
+                @if (estado === 'completado') {
+                  <span class="estado-completado">Completado</span>
+                } @else if (estado === 'en recepción') {
+                  <span class="estado-proceso">En Recepción</span>
+                } @else {
+                  <span class="estado-pendiente">Pendiente</span>
+                }
+              </td>
+              <td>{{ turno.jaula?.nombre || '-' }}</td>
+              <td>{{ turno.horaInicioRecepcion || '-' }}</td>
+              <td>{{ turno.horaFinRecepcion || '-' }}</td>
+              <td class="acciones">
+                @if (puedeIniciar(turno)) {
+                  <button 
+                    (click)="abrirModalEjecucion(turno)" 
+                    class="btn btn-iniciar"
+                  >
+                    Iniciar
+                  </button>
+                } @else if (puedeFinalizar(turno)) {
+                  <button 
+                    (click)="abrirModalEjecucion(turno)" 
+                    class="btn btn-finalizar"
+                  >
+                    Finalizar
+                  </button>
+                } @else {
+                  <span class="sin-accion">-</span>
+                }
+              </td>
+              <td>
+                <button 
+                  (click)="abrirModalDetalles(turno)" 
+                  class="btn btn-detalles"
+                >
+                  Ver
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  }
+
+  <!-- Modal de Ejecución -->
+  @if (mostrarModalEjecucion && turnoSeleccionado) {
+    <app-execute-modal
+      [turno]="turnoSeleccionado"
+      (cerrar)="cerrarModalEjecucion()"
+      (completado)="onRecepcionCompletada()"
+    ></app-execute-modal>
+  }
+
+  <!-- Modal de Detalles -->
+  @if (mostrarModalDetalles && turnoSeleccionado) {
+    <app-detail-modal
+      [turno]="turnoSeleccionado"
+      (cerrar)="cerrarModalDetalles()"
+    ></app-detail-modal>
+  }
+</div>

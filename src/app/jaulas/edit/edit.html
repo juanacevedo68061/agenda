@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>Editar Jaula</h2>
+
+  @if (isLoading) {
+    <p>Cargando jaula...</p>
+  } @else if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+    <button (click)="cancel()" class="btn btn-secondary">Volver</button>
+  } @else {
+    <form (ngSubmit)="onSubmit()" #jaulaForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre de la Jaula:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="jaula.nombre"
+          required
+          class="form-control"
+          placeholder="Ingresa el nombre de la jaula"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="enUso">En Uso:</label>
+        <select
+          id="enUso"
+          name="enUso"
+          [(ngModel)]="jaula.enUso"
+          class="form-control"
+        >
+          <option value="N">No</option>
+          <option value="S">Sí</option>
+        </select>
+      </div>
+
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+
+      <div class="form-actions">
+        <button
+          type="button"
+          (click)="cancel()"
+          class="btn btn-secondary"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          [disabled]="isSubmitting || !jaula.nombre.trim()"
+          class="btn btn-primary"
+        >
+          @if (isSubmitting) {
+            Actualizando...
+          } @else {
+            Actualizar Jaula
+          }
+        </button>
+      </div>
+    </form>
+  }
+</div>

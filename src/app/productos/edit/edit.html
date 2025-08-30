@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Editar Producto</h2>
+
+  @if (isLoading) {
+    <p>Cargando producto...</p>
+  } @else if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+    <button (click)="cancel()" class="btn btn-secondary">Volver</button>
+  } @else {
+    <form (ngSubmit)="onSubmit()" #productoForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre del Producto:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="producto.nombre"
+          required
+          class="form-control"
+          placeholder="Ingresa el nombre del producto"
+        >
+        @if (errorMessage) {
+          <div class="error-message">{{ errorMessage }}</div>
+        }
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          (click)="cancel()"
+          class="btn btn-secondary"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          [disabled]="isSubmitting || !producto.nombre.trim()"
+          class="btn btn-primary"
+        >
+          @if (isSubmitting) {
+            Actualizando...
+          } @else {
+            Actualizar Producto
+          }
+        </button>
+      </div>
+    </form>
+  }
+</div>

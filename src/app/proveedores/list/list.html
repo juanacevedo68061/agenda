@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+  <h2>Lista de Proveedores</h2>
+  
+  <div class="actions">
+    <a routerLink="/proveedores/crear" class="btn btn-primary">
+      + Nuevo Proveedor
+    </a>
+  </div>
+
+  @if (isLoading) {
+    <p>Cargando proveedores...</p>
+  } @else {
+    @if (proveedores.length === 0) {
+      <div class="empty-state">
+        <p>No hay proveedores registrados</p>
+        <p class="text-muted">Comienza agregando tu primer proveedor</p>
+      </div>
+    } @else {
+      <div class="proveedores-grid">
+        @for (proveedor of proveedores; track proveedor.id) {
+          <div class="proveedor-card">
+            <h3>{{ proveedor.nombre }}</h3>
+            <div class="actions">
+              <a [routerLink]="['/proveedores/editar', proveedor.id]" class="btn btn-edit">
+                Editar
+              </a>
+              <button (click)="delete(proveedor.id!)" class="btn btn-delete">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

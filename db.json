@@ -1,0 +1,271 @@
+{
+  "proveedores": [
+    {
+      "id": "dc75",
+      "nombre": "qwusada"
+    },
+    {
+      "id": "71fa",
+      "nombre": "hastraaa"
+    },
+    {
+      "id": "638c",
+      "nombre": "mante"
+    },
+    {
+      "id": "c7c5",
+      "nombre": "hanagat"
+    }
+  ],
+  "productos": [
+    {
+      "id": "83ae",
+      "nombre": "tomatou"
+    },
+    {
+      "id": "a983",
+      "nombre": "piña"
+    }
+  ],
+  "jaulas": [
+    {
+      "id": "6489",
+      "nombre": "mauq82",
+      "enUso": "N"
+    },
+    {
+      "id": "51a5",
+      "nombre": "gatqb362",
+      "enUso": "N"
+    },
+    {
+      "id": "0b26",
+      "nombre": "8821hasd",
+      "enUso": "N"
+    }
+  ],
+  "turnos": [
+    {
+      "id": "d869",
+      "fecha": "2025-08-29",
+      "horaInicioAgendamiento": "08:00",
+      "horaFinAgendamiento": "09:00",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 30
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "18:08",
+      "horaFinRecepcion": "18:09"
+    },
+    {
+      "id": "1ad4",
+      "fecha": "2025-08-30",
+      "horaInicioAgendamiento": "09:30",
+      "horaFinAgendamiento": "11:00",
+      "idProveedor": "71fa",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 56
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "21:32",
+      "horaFinRecepcion": "21:32"
+    },
+    {
+      "id": "0f2e",
+      "fecha": "2025-08-30",
+      "horaInicioAgendamiento": "11:30",
+      "horaFinAgendamiento": "12:00",
+      "idProveedor": "638c",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 8
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "21:43",
+      "horaFinRecepcion": "21:43"
+    },
+    {
+      "id": "ca08",
+      "fecha": "2025-08-30",
+      "horaInicioAgendamiento": "08:00",
+      "horaFinAgendamiento": "09:30",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 31812
+        },
+        {
+          "idProducto": "83ae",
+          "cantidad": 32114
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "21:47",
+      "horaFinRecepcion": "21:47"
+    },
+    {
+      "id": "1116",
+      "fecha": "2025-08-30",
+      "horaInicioAgendamiento": "09:30",
+      "horaFinAgendamiento": "11:00",
+      "idProveedor": "638c",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 6
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "21:47",
+      "horaFinRecepcion": "21:47"
+    },
+    {
+      "id": "a15c",
+      "fecha": "2025-08-29",
+      "horaInicioAgendamiento": "07:30",
+      "horaFinAgendamiento": "10:00",
+      "idProveedor": "71fa",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 5
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "22:01",
+      "horaFinRecepcion": "22:01"
+    },
+    {
+      "id": "93dd",
+      "fecha": "2025-08-29",
+      "horaInicioAgendamiento": "08:30",
+      "horaFinAgendamiento": "11:30",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 5
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "22:01",
+      "horaFinRecepcion": "22:01"
+    },
+    {
+      "id": "72cf",
+      "fecha": "2025-08-28",
+      "horaInicioAgendamiento": "09:00",
+      "horaFinAgendamiento": "07:00",
+      "idProveedor": "71fa",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 3
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "22:11",
+      "horaFinRecepcion": "22:12"
+    },
+    {
+      "id": "29cc",
+      "fecha": "2025-08-28",
+      "horaInicioAgendamiento": "07:30",
+      "horaFinAgendamiento": "10:00",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 4
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "22:11",
+      "horaFinRecepcion": "22:12"
+    },
+    {
+      "id": "0a18",
+      "fecha": "2025-08-27",
+      "horaInicioAgendamiento": "08:30",
+      "horaFinAgendamiento": "10:30",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 6
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "22:28",
+      "horaFinRecepcion": "22:29"
+    },
+    {
+      "id": "4b02",
+      "fecha": "2025-08-27",
+      "horaInicioAgendamiento": "08:30",
+      "horaFinAgendamiento": "09:30",
+      "idProveedor": "71fa",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 5
+        }
+      ],
+      "idJaula": "6489",
+      "horaInicioRecepcion": "22:29",
+      "horaFinRecepcion": "22:30"
+    },
+    {
+      "id": "9b5d",
+      "fecha": "2025-08-27",
+      "horaInicioAgendamiento": "08:00",
+      "horaFinAgendamiento": "10:30",
+      "idProveedor": "638c",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 5
+        }
+      ]
+    },
+    {
+      "id": "d62c",
+      "fecha": "2025-08-27",
+      "horaInicioAgendamiento": "07:30",
+      "horaFinAgendamiento": "08:00",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "83ae",
+          "cantidad": 4
+        }
+      ]
+    },
+    {
+      "id": "d95f",
+      "fecha": "2025-08-30",
+      "horaInicioAgendamiento": "07:30",
+      "horaFinAgendamiento": "08:30",
+      "idProveedor": "dc75",
+      "detalles": [
+        {
+          "idProducto": "a983",
+          "cantidad": 6
+        }
+      ],
+      "idJaula": "51a5",
+      "horaInicioRecepcion": "12:01",
+      "horaFinRecepcion": "12:02"
+    }
+  ]
+}

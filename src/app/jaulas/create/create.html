@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Crear Nueva Jaula</h2>
+
+  <form (ngSubmit)="onSubmit()" #jaulaForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre de la Jaula:</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        [(ngModel)]="jaula.nombre"
+        required
+        class="form-control"
+        placeholder="Ingresa el nombre de la jaula"
+      >
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="button"
+        (click)="cancel()"
+        class="btn btn-secondary"
+      >
+        Cancelar
+      </button>
+      <button
+        type="submit"
+        [disabled]="isSubmitting || !jaula.nombre.trim()"
+        class="btn btn-primary"
+      >
+        @if (isSubmitting) {
+          Creando...
+        } @else {
+          Crear Jaula
+        }
+      </button>
+    </div>
+  </form>
+</div>

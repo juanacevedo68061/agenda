@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container">
+  <h2>Lista de Jaulas</h2>
+  
+  <div class="actions">
+    <a routerLink="/jaulas/crear" class="btn btn-primary">
+      + Nueva Jaula
+    </a>
+  </div>
+
+  @if (isLoading) {
+    <p>Cargando jaulas...</p>
+  } @else {
+    @if (jaulas.length === 0) {
+      <div class="empty-state">
+        <p>No hay jaulas registradas</p>
+        <p class="text-muted">Comienza agregando tu primera jaula</p>
+      </div>
+    } @else {
+      <div class="jaulas-grid">
+        @for (jaula of jaulas; track jaula.id) {
+          <div class="jaula-card">
+            <h3>{{ jaula.nombre }}</h3>
+            <p><strong>Estado:</strong> {{ jaula.enUso === 'S' ? 'En uso' : 'Disponible' }}</p>
+            <div class="actions">
+              <a [routerLink]="['/jaulas/editar', jaula.id]" class="btn btn-edit">
+                Editar
+              </a>
+              <button (click)="delete(jaula.id!)" class="btn btn-delete">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>
