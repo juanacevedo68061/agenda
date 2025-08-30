@@ -14,8 +14,8 @@ Asegúrese de tener instalado:
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <url-del-repositorio>
-cd <nombre-del-directorio>
+git clone https://github.com/juanacevedo68061/agenda.git
+cd agenda
 ```
 
 ### 2. Instalar dependencias locales
