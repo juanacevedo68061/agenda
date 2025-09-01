@@ -7,8 +7,7 @@ Sistema frontend desarrollado en **Angular 20** para la gestión de agendamiento
 ## Prerrequisitos
 
 Asegúrese de tener instalado:
-- **Node.js** (versión 11.5.2 o superior)
-- **npm** (viene incluido con Node.js)
+- **Node.js** (versión 20 o superior)
 
 ## Pasos para el Despliegue
 
@@ -17,19 +16,25 @@ Asegúrese de tener instalado:
 git clone https://github.com/juanacevedo68061/agenda.git
 cd agenda
 ```
-
-### 2. Instalar dependencias locales
+### 2. Actualizar npm
 ```bash
-npm install
+npm install -g npm@11.5.2 
 ```
 
-### 3. Iniciar JSON Server
+### 3. Instalar dependencias locales
+```bash
+npm install
+npm install -g @angular/cli
+npm install -g json-server
+```
+
+### 4. Iniciar JSON Server
 ```bash
 npm run json-server
 ```
 Configurado para el puerto 3000
 
-### 3. Iniciar la aplicación Angular
+### 5. Iniciar la aplicación Angular (a la par de JSON Server)
 ```bash
 ng serve
 ```
